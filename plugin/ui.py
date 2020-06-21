@@ -46,7 +46,7 @@ class Radar(Screen):
 			# url = "http://buienradar.mobi/image.gif?k=1&l=0"
 			url = "http://www.buienradar.nl/images.aspx?jaar=-3"
 		print("[BR] URL='%s'" % url)
-	        downloadPage(url, '/tmp/radar.gif').addCallbacks(self.afterDownload, self.downloadFail)
+		downloadPage(url, '/tmp/radar.gif').addCallbacks(self.afterDownload, self.downloadFail)
 		
 	def downloadFail(self, failure):
 		print("[BR] download failed:", failure)
