@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 import enigma
 from Screens.Screen import Screen
@@ -44,16 +45,16 @@ class Radar(Screen):
 			# This looks okay though:
 			# url = "http://buienradar.mobi/image.gif?k=1&l=0"
 			url = "http://www.buienradar.nl/images.aspx?jaar=-3"
-		print "[BR] URL='%s'" % url
+		print("[BR] URL='%s'" % url)
 	        downloadPage(url, '/tmp/radar.gif').addCallbacks(self.afterDownload, self.downloadFail)
 		
 	def downloadFail(self, failure):
-		print "[BR] download failed:", failure
+		print("[BR] download failed:", failure)
 		self["info"].setText(_("Error") + ": " + str(failure))
 		self.quit()
 		
 	def afterDownload(self, result=None):
-		print "[BR] download ready"
+		print("[BR] download ready")
 		self["info"].setText(_("please wait, loading picture..."))	
 		sc = getScale()
 		par = [self["pic"].instance.size().width(), self["pic"].instance.size().height(), sc[0], sc[1], False, 0, "#FF000000"]
@@ -63,7 +64,7 @@ class Radar(Screen):
 		self.timer.start(60000, True)
 		
 	def showPic(self, picInfo=None):
-		print "[BR] show picture"
+		print("[BR] show picture")
 		self["info"].setText("")	
 		ptr = self.picload.getData()
 		if ptr != None:

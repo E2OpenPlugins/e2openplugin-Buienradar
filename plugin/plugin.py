@@ -1,7 +1,8 @@
+from __future__ import absolute_import
 from Plugins.Plugin import PluginDescriptor
 
 def main(session, **kwargs):
-	import ui
+	from . import ui
 	session.open(ui.Radar)
 
 
