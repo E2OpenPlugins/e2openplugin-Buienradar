@@ -17,8 +17,8 @@ class Radar(Screen):
 		size_h = size.height()
 		space = 30
 		self.skin = '<screen position="0,0" size="' + str(size_w) + "," + str(size_h) + '" flags="wfNoBorder" > \
-				<widget source="info" render="Label" position="' + str(space+45) + "," + str(space) + '" size="' + str(size_w-(space*2)-50) + ',25" font="Regular;20" borderWidth="1" borderColor="#000000" halign="left" zPosition="2" noWrap="1" transparent="1" /> \
-				<widget name="pic" position="' + str(space) + "," + str(space) + '" size="' + str(size_w-(space*2)) + "," + str(size_h-(space*2)) +'" zPosition="1" />\
+				<widget source="info" render="Label" position="' + str(space + 45) + "," + str(space) + '" size="' + str(size_w - (space * 2) - 50) + ',25" font="Regular;20" borderWidth="1" borderColor="#000000" halign="left" zPosition="2" noWrap="1" transparent="1" /> \
+				<widget name="pic" position="' + str(space) + "," + str(space) + '" size="' + str(size_w - (space * 2)) + "," + str(size_h - (space * 2)) + '" zPosition="1" />\
 			</screen>'
 		Screen.__init__(self, session)
 
