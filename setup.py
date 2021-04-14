@@ -6,6 +6,6 @@ setup(name='enigma2-plugin-extensions-buienradar',
        description='Buienradar',
        packages=[pkg],
        package_dir={pkg: 'plugin'},
-       package_data={pkg: 
+       package_data={pkg:
            ['plugin.png']},
       )

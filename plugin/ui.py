@@ -24,7 +24,7 @@ class Radar(Screen):
 			</screen>'
 		Screen.__init__(self, session)
 
-		self["info"] = StaticText()	
+		self["info"] = StaticText()
 		self["pic"] = Pixmap()
 		self.picload = enigma.ePicLoad()
 		self.picload.PictureData.get().append(self.showPic)
@@ -48,40 +48,39 @@ class Radar(Screen):
 			url = "http://www.buienradar.nl/images.aspx?jaar=-3"
 		print "[BR] URL='%s'" % url
 	        downloadPage(url, '/tmp/radar.gif').addCallbacks(self.afterDownload, self.downloadFail)
-		
+
 	def downloadFail(self, failure):
 		print "[BR] download failed:", failure
 		self["info"].setText(_("Error") + ": " + str(failure))
 		self.quit()
-		
+
 	def afterDownload(self, result=None):
 		print "[BR] download ready"
-		self["info"].setText(_("please wait, loading picture..."))	
+		self["info"].setText(_("please wait, loading picture..."))
 		sc = getScale()
 		par = [self["pic"].instance.size().width(), self["pic"].instance.size().height(), sc[0], sc[1], False, 0, "#FF000000"]
 		self.picload.setPara(par)
 		self.picload.startDecode('/tmp/radar.gif')
 		# refresh image every minute
 		self.timer.start(60000, True)
-		
+
 	def showPic(self, picInfo=None):
 		print "[BR] show picture"
-		self["info"].setText("")	
+		self["info"].setText("")
 		ptr = self.picload.getData()
 		if ptr != None:
 			self["pic"].instance.setPixmap(ptr.__deref__())
 			self["pic"].show()
 		self.cleanTemp()
-	
+
 	def cleanTemp(self):
 		try:
 			os.unlink('/tmp/radar.gif')
 		except:
 			pass
-	
+
 	def quit(self):
 		self.cleanTemp()
 		self.timer.stop()
 		del self.picload
 		self.close()
-
