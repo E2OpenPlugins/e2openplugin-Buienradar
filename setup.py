@@ -1,7 +1,7 @@
 from distutils.core import setup, Extension
 
 pkg = 'Extensions.Buienradar'
-setup (name='enigma2-plugin-extensions-buienradar',
+setup(name='enigma2-plugin-extensions-buienradar',
        version='0.1',
        description='Buienradar',
        packages=[pkg],
