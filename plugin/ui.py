@@ -7,8 +7,10 @@ from Components.Sources.StaticText import StaticText
 from Components.AVSwitch import AVSwitch
 from twisted.web.client import downloadPage
 
+
 def getScale():
 	return AVSwitch().getFramebufferScale()
+
 
 class Radar(Screen):
 	def __init__(self, session):
